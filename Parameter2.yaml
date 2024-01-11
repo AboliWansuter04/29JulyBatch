@@ -1,0 +1,8 @@
+name: Suite
+configFailurePolicy: skip
+tests:
+  - name: Test
+  parameters: { fname: Aboli, lname: Tambat, Mno: 7709126281 }
+  classes:
+    - dataProvider.FBAccountFormUsing_XML 
+

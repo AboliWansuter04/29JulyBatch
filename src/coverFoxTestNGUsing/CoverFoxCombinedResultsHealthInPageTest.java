@@ -1,0 +1,78 @@
+package coverFoxTestNGUsing;
+
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class CoverFoxCombinedResultsHealthInPageTest 
+{
+
+	@FindBy(xpath = "//div[contains(text(),'matching Health')]")private WebElement resultInamtchinghealthpage;
+	 @FindBy(id = "plans-list")private List<WebElement> planlist;
+	 
+	 public CoverFoxCombinedResultsHealthInPageTest(WebDriver diver)
+	 {
+		 PageFactory.initElements(diver,this);
+		 
+	 }
+	 public void resltInString() 
+	 {
+		 resultInamtchinghealthpage.click();
+	 }
+	 
+	 /*public void planlistdetails()
+
+		 String test1 = resultInamtchinghealthpage.getText();
+		 String ar[]=test1.split(" ");
+		 String numberOfResultsInString = ar[0];//49-->String
+		//convert String to integer
+		int numberOfResultsInInt = Integer.parseInt(numberOfResultsInString);
+		
+
+		int totalNumberOfPlans = planlist.size();
+		if(totalNumberOfPlans==numberOfResultsInInt)
+		{
+		System.out.println("Plans no matching with plans List,TC is passed");
+		}
+		else {
+		System.out.println("Plans number is not matching with plans List, TC is failed");
+		}*/
+	 
+	 public int availablePlanNumberFromText() 
+	 	{ 
+	 
+	 	 	
+			String test = resultInamtchinghealthpage.getText(); 
+	 	 	//49 matching Health Insurance Plans 
+	 	 	 
+	 	 	String ar[]=test.split(" "); 
+	 	 	//ar[]={"49" "matching" "Health" "Insurance" "Plans"} 
+	 	 	 
+	 	 	String numberOfResultsInString = ar[0];//49-->String 
+	 	 	//convert String to integer 
+	 	 	int numberOfResultsInInt = Integer.parseInt(numberOfResultsInString);//49-->in number(int) 
+	 	 
+	 	 	return numberOfResultsInInt; 
+	 	 	 
+	 	} 
+	 
+	 
+	 
+	 
+	public int availablePlanNumberFromBanners() 
+	{ 
+	 	 
+		 	int totalNumberOfPlans = planlist.size(); 
+	 	 
+	       return totalNumberOfPlans; 
+	 	 
+	} 
+	 	 
+
+				
+	 
+	 
+}
